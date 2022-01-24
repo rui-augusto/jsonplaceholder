@@ -13,17 +13,16 @@ export const Album = () => {
         if (idParams){
             loadAlbum(idParams);
             loadPhotos(idParams);
-            console.log(photos);
         }
     }, []);
 
     const loadAlbum = async () => {
-        let json = await api.getAlbum(idParams);
+        const json = await api.getAlbum(idParams);
         setAlbum(json);
     }
 
     const loadPhotos = async () => {
-        let json = await api.getPhotos(idParams);
+        const json = await api.getPhotos(idParams);
         setPhotos(json);
     }
     
@@ -31,22 +30,16 @@ export const Album = () => {
         navigate(-1);
     }
 
-    // const handleClickButton = () => {
-    //     loadPhotos();
-    // }
-
     return (
         <div>
             <h2>{album.title}</h2>
-            {/* aq */}
-            {/* <button onClick = {handleClickButton}>Carregar</button>  */}
             {photos.map((item, index) => {
-                    <div>
-                        {item.title}
-                        <img src = {item.url} alt = {item.title}/>
+                return (
+                    <div key = {index}>
+                        <img src = {item.url}/>
                     </div>
-                })
-            }
+                );
+            })}
             <button onClick = {handleBackButton}>Voltar</button>
         </div>
     );

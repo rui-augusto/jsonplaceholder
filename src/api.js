@@ -17,7 +17,7 @@ export const api = {
     },
     getPhotos: async (props) => {
         let response = await fetch(`${BASE}/albums/${props.id}/photos`);
-        return response.jsonn();
+        return response.json();
     },
     getPhoto: async (props) => {
         let response = await fetch(`${BASE}/photos/${props.id}`);

@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { api } from "../api";
 import { AboutItem } from "../components/AboutItem";
 import { Link } from 'react-router-dom';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 export const Home = () => {
     const [albums, setAlbums] = useState([]);
     
+    useEffect(() => {
+        loadAlbum();
+    }, []);
+
     const loadAlbum = async () => {
         let json = await api.getAlbums();
         setAlbums(json);
@@ -13,7 +17,7 @@ export const Home = () => {
     
     return (
         <Fragment>
-            <button onClick = {loadAlbum}>Carregar</button>
+            {/* <button onClick = {loadAlbum}>Carregar</button> */}
             {albums.map((item, index) => (
                 <AboutItem 
                     id = {item.id} 
