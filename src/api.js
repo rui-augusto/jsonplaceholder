@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+// import { axios } from 'axios'; 
 
 const BASE = 'https://jsonplaceholder.typicode.com';
 // const http = axios.create({

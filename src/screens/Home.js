@@ -1,7 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
 import { api } from "../api";
-import { AboutItem } from "../components/AboutItem";
-import { Link } from 'react-router-dom';
+import { AlbumItem } from "../components/AlbumItem";
 
 export const Home = () => {
     const [albums, setAlbums] = useState([]);
@@ -17,9 +16,8 @@ export const Home = () => {
     
     return (
         <Fragment>
-            {/* <button onClick = {loadAlbum}>Carregar</button> */}
             {albums.map((item, index) => (
-                <AboutItem 
+                <AlbumItem 
                     id = {item.id} 
                     title = {item.title} 
                     key = {index}

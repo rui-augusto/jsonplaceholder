@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 
 export const PhotoItem = (props) => {
     return (
-        <div>
-            <img src = {props.data.thumbnailUrl} alt = {props.data.title}/>
-        </div>
+        <Link to = {`../../photo/${props.data.id}`}>
+            <img 
+                src = {props.data.url} 
+                alt = {props.data.title} 
+                width = "150px"
+            />
+        </Link>
     );
 }

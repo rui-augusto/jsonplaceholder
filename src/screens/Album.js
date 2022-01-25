@@ -11,8 +11,8 @@ export const Album = () => {
 
     useEffect(() => {
         if (idParams){
-            loadAlbum(idParams);
-            loadPhotos(idParams);
+            loadAlbum();
+            loadPhotos();
         }
     }, []);
 
@@ -33,13 +33,12 @@ export const Album = () => {
     return (
         <div>
             <h2>{album.title}</h2>
-            {photos.map((item, index) => {
-                return (
-                    <div key = {index}>
-                        <img src = {item.url}/>
-                    </div>
-                );
-            })}
+            {photos.map((item, index) => (
+                <PhotoItem 
+                    data = {item}
+                    key = {index}
+                />
+            ))}
             <button onClick = {handleBackButton}>Voltar</button>
         </div>
     );
